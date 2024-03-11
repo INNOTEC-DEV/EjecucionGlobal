@@ -1,0 +1,1445 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="8/18/2022 1:22:59 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="SRV-SQLBICR"
+  DTS:CreatorName="SRV-SQLBICR\desarrollador_sql"
+  DTS:DelayValidation="True"
+  DTS:DTSID="{A8D6170D-C46C-46E4-BA09-D35489386B96}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.170"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="TEMPORAL"
+  DTS:PackageType="5"
+  DTS:VersionBuild="119"
+  DTS:VersionGUID="{169D4BBC-2EDD-4742-BE79-CF849B31DD4B}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DWH]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{795E9EC4-2583-4FD4-BFF7-79C44E656D19}"
+      DTS:ObjectName="DWH">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=.;Initial Catalog=DWH;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[msdb]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{92EB1927-1424-4570-B2A2-2E286398CA9B}"
+      DTS:ObjectName="msdb">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=.;Initial Catalog=msdb;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[SSAS]"
+      DTS:CreationName="MSOLAP100"
+      DTS:DTSID="{00A79C4D-E9F5-43B1-9C05-A8B88A373087}"
+      DTS:ObjectName="SSAS">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
+          DTS:ConnectionString="Data Source=.;Initial Catalog=COMERCIAL;Provider=MSOLAP.8;Integrated Security=SSPI;Impersonation Level=Impersonate;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[SSAS_TAB]"
+      DTS:CreationName="MSOLAP100"
+      DTS:DTSID="{4E08EC5B-264B-4362-8A77-235477C105F3}"
+      DTS:ObjectName="SSAS_TAB">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
+          DTS:ConnectionString="Data Source=.\TABULAR;Initial Catalog=Indicadores Inventario;Provider=MSOLAP.8;Integrated Security=SSPI;Impersonation Level=Impersonate;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:LogProviders>
+    <DTS:LogProvider
+      DTS:ConfigString="DWH"
+      DTS:CreationName="Microsoft.LogProviderSQLServer"
+      DTS:Description="Writes log entries for events to a SQL Server database"
+      DTS:DTSID="{C58236F1-250A-49B5-9201-D2E1B5AC59F4}"
+      DTS:ObjectName="SSIS log provider for SQL Server">
+      <DTS:ObjectData>
+        <InnerObject />
+      </DTS:ObjectData>
+    </DTS:LogProvider>
+  </DTS:LogProviders>
+  <DTS:Variables />
+  <DTS:LoggingOptions
+    DTS:FilterKind="0"
+    DTS:LoggingMode="1">
+    <DTS:Property
+      DTS:DataType="8"
+      DTS:Name="EventFilter">1,7,OnError</DTS:Property>
+    <DTS:Property
+      DTS:EventName="OnError"
+      DTS:Name="ColumnFilter">
+      <DTS:Property
+        DTS:Name="Computer">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="Operator">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceName">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="ExecutionID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="MessageText">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="DataBytes">-1</DTS:Property>
+    </DTS:Property>
+    <DTS:SelectedLogProviders>
+      <DTS:SelectedLogProvider
+        DTS:InstanceID="{C58236F1-250A-49B5-9201-D2E1B5AC59F4}" />
+    </DTS:SelectedLogProviders>
+  </DTS:LoggingOptions>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Carga VALOR_NETO_REALIZADO"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{DAB01524-BF23-4F27-A088-6E40BE91203E}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Carga VALOR_NETO_REALIZADO"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0" />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{795E9EC4-2583-4FD4-BFF7-79C44E656D19}"
+          SQLTask:SqlStatementSource="exec PROC_VNR" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Cargar VNR por SKU"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{6AF73534-A212-46C6-B973-119571586DFA}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Cargar VNR por SKU"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0" />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{795E9EC4-2583-4FD4-BFF7-79C44E656D19}"
+          SQLTask:SqlStatementSource="--VNR SKU&#xA;Declare @execution_id bigint&#xA;EXEC [SSISDB].[catalog].[create_execution] @package_name=N'TRA-VNR_SKU.dtsx', @execution_id=@execution_id OUTPUT, @folder_name=N'KPI Comercial', @project_name=N'KPI Comercial', @use32bitruntime=False, @reference_id=Null, @runinscaleout=False&#xA;Select @execution_id&#xA;DECLARE @var0 smallint = 1&#xA;EXEC [SSISDB].[catalog].[set_execution_parameter_value] @execution_id,  @object_type=50, @parameter_name=N'LOGGING_LEVEL', @parameter_value=@var0&#xA;EXEC [SSISDB].[catalog].[start_execution] @execution_id&#xA;GO&#xA;--**********************************************************************************************************&#xA;DECLARE @FIN_CICLO INT = 0&#xA;&#xA;WHILE @FIN_CICLO = 0&#xA;BEGIN&#xA;WAITFOR DELAY '00:00:10'&#xA;SELECT @FIN_CICLO =&#xA;&#x9;CASE&#xA;&#x9;&#x9;WHEN COUNT(1) &gt; 0&#xA;&#x9;&#x9;&#x9;THEN 0&#xA;&#x9;&#x9;ELSE 1&#xA;&#x9;END&#xA;FROM ssisdb.catalog.executions(nolock) ex&#xA;WHERE ex.end_time IS NULL  -- still running &#xA;AND ex.status = 2 -- 1-created , 2-running ,3-canceled,4-failed ,5-pending,6-ended unexpectedly,7-succeeded ,8-stopping, 9-completed&#xA;AND EX.package_name = 'TRA-VNR_SKU.dtsx' AND EX.project_name = 'KPI Comercial'&#xA;END&#xA;&#xA;IF (SELECT COUNT(1)&#xA;&#x9;FROM (&#xA;&#x9;&#x9;SELECT&#xA;&#x9;&#x9;&#x9;end_time = MAX(end_time)&#xA;&#x9;&#x9;&#x9;, ex.status -- 1-created , 2-running ,3-canceled,4-failed ,5-pending,6-ended unexpectedly,7-succeeded ,8-stopping, 9-completed&#xA;&#x9;&#x9;&#x9;, EX.project_name&#xA;&#x9;&#x9;&#x9;, EX.package_name&#xA;&#x9;&#x9;FROM ssisdb.catalog.executions(nolock) ex&#xA;&#x9;&#x9;WHERE EX.package_name = 'TRA-VNR_SKU.dtsx' AND EX.project_name = 'KPI Comercial'&#xA;&#x9;&#x9;&#x9;AND CAST(EX.start_time AS DATE) = CAST(GETDATE() AS DATE)&#xA;&#x9;&#x9;GROUP BY EX.project_name&#xA;&#x9;&#x9;&#x9;, EX.package_name&#xA;&#x9;&#x9;&#x9;, ex.status&#xA;&#x9;)A&#xA;&#x9;WHERE A.status = 7) = 1&#xA;&#x9;SELECT 1&#xA;ELSE&#xA;&#x9;SELECT CAST('ERROR EN LAS TRANS' AS INT)" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\CargaTablas Reportes PBI Migracion"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{9721CEB7-8BC2-4C15-92F2-0C48A141D5AA}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="CargaTablas Reportes PBI Migracion"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0" />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{795E9EC4-2583-4FD4-BFF7-79C44E656D19}"
+          SQLTask:SqlStatementSource="--Carga Tablas Reportes Migrados&#xA;Declare @execution_id bigint&#xA;EXEC [SSISDB].[catalog].[create_execution] @package_name=N'ORQ-REPORTES_PBI.dtsx', @execution_id=@execution_id OUTPUT, @folder_name=N'PBI_REPORTES', @project_name=N'PBI_REPORTS', @use32bitruntime=False, @reference_id=Null, @runinscaleout=False&#xA;Select @execution_id&#xA;DECLARE @var0 smallint = 1&#xA;EXEC [SSISDB].[catalog].[set_execution_parameter_value] @execution_id,  @object_type=50, @parameter_name=N'LOGGING_LEVEL', @parameter_value=@var0&#xA;EXEC [SSISDB].[catalog].[start_execution] @execution_id&#xA;GO&#xA;--**********************************************************************************************************&#xA;DECLARE @FIN_CICLO INT = 0&#xA;&#xA;WHILE @FIN_CICLO = 0&#xA;BEGIN&#xA;WAITFOR DELAY '00:00:10'&#xA;SELECT @FIN_CICLO =&#xA; CASE&#xA;  WHEN COUNT(1) &gt; 0&#xA;   THEN 0&#xA;  ELSE 1&#xA; END&#xA;FROM ssisdb.catalog.executions(nolock) ex&#xA;WHERE ex.end_time IS NULL  -- still running &#xA;AND ex.status = 2 -- 1-created , 2-running ,3-canceled,4-failed ,5-pending,6-ended unexpectedly,7-succeeded ,8-stopping, 9-completed&#xA;AND EX.package_name = 'ORQ-REPORTES_PBI.dtsx' AND EX.project_name = 'PBI_REPORTS'&#xA;END&#xA;&#xA;IF (SELECT COUNT(1)&#xA; FROM (&#xA;  SELECT&#xA;   end_time = MAX(end_time)&#xA;   , ex.status -- 1-created , 2-running ,3-canceled,4-failed ,5-pending,6-ended unexpectedly,7-succeeded ,8-stopping, 9-completed&#xA;   , EX.project_name&#xA;   , EX.package_name&#xA;  FROM ssisdb.catalog.executions(nolock) ex&#xA;  WHERE EX.package_name = 'ORQ-REPORTES_PBI.dtsx' AND EX.project_name = 'PBI_REPORTS'&#xA;   AND CAST(EX.start_time AS DATE) = CAST(GETDATE() AS DATE)&#xA;  GROUP BY EX.project_name&#xA;   , EX.package_name&#xA;   , ex.status&#xA; )A&#xA; WHERE A.status = 7) = 1&#xA; SELECT 1&#xA;ELSE&#xA; SELECT CAST('ERROR EN LA TRANS' AS INT)" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Ext Comercial"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{7C90DF32-BA8B-42EB-A442-8DD9FC1FA259}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Ext Comercial"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="2">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0" />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{795E9EC4-2583-4FD4-BFF7-79C44E656D19}"
+          SQLTask:SqlStatementSource="--EXT COMERCIAL&#xA;Declare @execution_id bigint&#xA;EXEC [SSISDB].[catalog].[create_execution] @package_name=N'ORQ-EXT.dtsx', @execution_id=@execution_id OUTPUT, @folder_name=N'COMERCIAL', @project_name=N'COMERCIAL', @use32bitruntime=True, @reference_id=Null, @runinscaleout=False&#xA;Select @execution_id&#xA;DECLARE @var0 smallint = 1&#xA;EXEC [SSISDB].[catalog].[set_execution_parameter_value] @execution_id,  @object_type=50, @parameter_name=N'LOGGING_LEVEL', @parameter_value=@var0&#xA;EXEC [SSISDB].[catalog].[start_execution] @execution_id&#xA;GO&#xA;&#xA;--**********************************************************************************************************&#xA;DECLARE @FIN_CICLO INT = 0&#xA;&#xA;WHILE @FIN_CICLO = 0&#xA;BEGIN&#xA;WAITFOR DELAY '00:00:10'&#xA;SELECT @FIN_CICLO =&#xA; CASE&#xA;  WHEN COUNT(1) &gt; 0&#xA;   THEN 0&#xA;  ELSE 1&#xA; END&#xA;FROM ssisdb.catalog.executions(nolock) ex&#xA;WHERE ex.end_time IS NULL  -- still running &#xA;AND ex.status = 2 -- 1-created , 2-running ,3-canceled,4-failed ,5-pending,6-ended unexpectedly,7-succeeded ,8-stopping, 9-completed&#xA;AND EX.package_name = 'ORQ-EXT.dtsx' AND EX.project_name = 'COMERCIAL'&#xA;END&#xA;&#xA;IF (SELECT COUNT(1)&#xA; FROM (&#xA;  SELECT&#xA;   end_time = MAX(end_time)&#xA;   , ex.status -- 1-created , 2-running ,3-canceled,4-failed ,5-pending,6-ended unexpectedly,7-succeeded ,8-stopping, 9-completed&#xA;   , EX.project_name&#xA;   , EX.package_name&#xA;  FROM ssisdb.catalog.executions(nolock) ex&#xA;  WHERE EX.package_name = 'ORQ-EXT.dtsx' AND EX.project_name = 'COMERCIAL'&#xA;   AND CAST(EX.start_time AS DATE) = CAST(GETDATE() AS DATE)&#xA;  GROUP BY EX.project_name&#xA;   , EX.package_name&#xA;   , ex.status&#xA; )A&#xA; WHERE A.status = 7) = 1&#xA; SELECT 1&#xA;ELSE&#xA; SELECT CAST('ERROR EN LA EXT COMERCIAL' AS INT)" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Ext Inventarios"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:Disabled="True"
+      DTS:DTSID="{92F14932-3D0E-44AB-9583-BFFCF79A9CEB}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Ext Inventarios"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="2">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0" />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{795E9EC4-2583-4FD4-BFF7-79C44E656D19}"
+          SQLTask:SqlStatementSource="--EXCEL INVENTARIO&#xA;Declare @execution_id bigint&#xA;EXEC [SSISDB].[catalog].[create_execution] @package_name=N'ORQ-EXT.dtsx', @execution_id=@execution_id OUTPUT, @folder_name=N'Inventario', @project_name=N'Inventario', @use32bitruntime=True, @reference_id=Null, @runinscaleout=False&#xA;Select @execution_id&#xA;DECLARE @var0 smallint = 1&#xA;EXEC [SSISDB].[catalog].[set_execution_parameter_value] @execution_id,  @object_type=50, @parameter_name=N'LOGGING_LEVEL', @parameter_value=@var0&#xA;EXEC [SSISDB].[catalog].[start_execution] @execution_id&#xA;GO&#xA;--**********************************************************************************************************&#xA;DECLARE @FIN_CICLO INT = 0&#xA;&#xA;WHILE @FIN_CICLO = 0&#xA;BEGIN&#xA;WAITFOR DELAY '00:00:10'&#xA;SELECT @FIN_CICLO =&#xA; CASE&#xA;  WHEN COUNT(1) &gt; 0&#xA;   THEN 0&#xA;  ELSE 1&#xA; END&#xA;FROM ssisdb.catalog.executions(nolock) ex&#xA;WHERE ex.end_time IS NULL  -- still running &#xA;AND ex.status = 2 -- 1-created , 2-running ,3-canceled,4-failed ,5-pending,6-ended unexpectedly,7-succeeded ,8-stopping, 9-completed&#xA;AND EX.package_name = 'ORQ-EXT.dtsx' AND EX.project_name = 'Inventario'&#xA;END&#xA;&#xA;IF (SELECT COUNT(1)&#xA; FROM (&#xA;  SELECT&#xA;   end_time = MAX(end_time)&#xA;   , ex.status -- 1-created , 2-running ,3-canceled,4-failed ,5-pending,6-ended unexpectedly,7-succeeded ,8-stopping, 9-completed&#xA;   , EX.project_name&#xA;   , EX.package_name&#xA;  FROM ssisdb.catalog.executions(nolock) ex&#xA;  WHERE EX.package_name = 'ORQ-EXT.dtsx' AND EX.project_name = 'Inventario'&#xA;   AND CAST(EX.start_time AS DATE) = CAST(GETDATE() AS DATE)&#xA;  GROUP BY EX.project_name&#xA;   , EX.package_name&#xA;   , ex.status&#xA; )A&#xA; WHERE A.status = 7) = 1&#xA; SELECT 1&#xA;ELSE&#xA; SELECT CAST('ERROR EN LAS EXT' AS INT)" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Ext KPI Comercial"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:Disabled="True"
+      DTS:DTSID="{E34479B6-7A3A-4E0F-9CD3-77962E89C916}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Ext KPI Comercial"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0" />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{795E9EC4-2583-4FD4-BFF7-79C44E656D19}"
+          SQLTask:SqlStatementSource="--EXT KPI COMERCIAL&#xA;Declare @execution_id bigint&#xA;EXEC [SSISDB].[catalog].[create_execution] @package_name=N'ORQ-EXT.dtsx', @execution_id=@execution_id OUTPUT, @folder_name=N'KPI Comercial', @project_name=N'KPI Comercial', @use32bitruntime=True, @reference_id=Null, @runinscaleout=False&#xA;Select @execution_id&#xA;DECLARE @var0 smallint = 1&#xA;EXEC [SSISDB].[catalog].[set_execution_parameter_value] @execution_id,  @object_type=50, @parameter_name=N'LOGGING_LEVEL', @parameter_value=@var0&#xA;EXEC [SSISDB].[catalog].[start_execution] @execution_id&#xA;GO&#xA;--**********************************************************************************************************&#xA;DECLARE @FIN_CICLO INT = 0&#xA;&#xA;WHILE @FIN_CICLO = 0&#xA;BEGIN&#xA;WAITFOR DELAY '00:00:10'&#xA;SELECT @FIN_CICLO =&#xA;&#x9;CASE&#xA;&#x9;&#x9;WHEN COUNT(1) &gt; 0&#xA;&#x9;&#x9;&#x9;THEN 0&#xA;&#x9;&#x9;ELSE 1&#xA;&#x9;END&#xA;FROM ssisdb.catalog.executions(nolock) ex&#xA;WHERE ex.end_time IS NULL  -- still running &#xA;AND ex.status = 2 -- 1-created , 2-running ,3-canceled,4-failed ,5-pending,6-ended unexpectedly,7-succeeded ,8-stopping, 9-completed&#xA;AND EX.package_name = 'ORQ-EXT.dtsx' AND EX.project_name = 'KPI Comercial'&#xA;END&#xA;&#xA;IF (SELECT COUNT(1)&#xA;&#x9;FROM (&#xA;&#x9;&#x9;SELECT&#xA;&#x9;&#x9;&#x9;end_time = MAX(end_time)&#xA;&#x9;&#x9;&#x9;, ex.status -- 1-created , 2-running ,3-canceled,4-failed ,5-pending,6-ended unexpectedly,7-succeeded ,8-stopping, 9-completed&#xA;&#x9;&#x9;&#x9;, EX.project_name&#xA;&#x9;&#x9;&#x9;, EX.package_name&#xA;&#x9;&#x9;FROM ssisdb.catalog.executions(nolock) ex&#xA;&#x9;&#x9;WHERE EX.package_name = 'ORQ-EXT.dtsx' AND EX.project_name = 'KPI Comercial'&#xA;&#x9;&#x9;&#x9;AND CAST(EX.start_time AS DATE) = CAST(GETDATE() AS DATE)&#xA;&#x9;&#x9;GROUP BY EX.project_name&#xA;&#x9;&#x9;&#x9;, EX.package_name&#xA;&#x9;&#x9;&#x9;, ex.status&#xA;&#x9;)A&#xA;&#x9;WHERE A.status = 7) = 1&#xA;&#x9;SELECT 1&#xA;ELSE&#xA;&#x9;SELECT CAST('ERROR EN LAS EXT' AS INT)" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Ext Reportes Gerenciales"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{4F270268-164F-4F75-B764-14128C355346}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Ext Reportes Gerenciales"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0" />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{795E9EC4-2583-4FD4-BFF7-79C44E656D19}"
+          SQLTask:SqlStatementSource="--EXT COMERCIAL&#xA;Declare @execution_id bigint&#xA;EXEC [SSISDB].[catalog].[create_execution] @package_name=N'ORQ-EXT.dtsx', @execution_id=@execution_id OUTPUT,&#xA;@folder_name=N'Reportes Gerenciales', @project_name=N'Reportes Gerenciales', @use32bitruntime=True, @reference_id=Null, @runinscaleout=False&#xA;Select @execution_id&#xA;DECLARE @var0 smallint = 1&#xA;EXEC [SSISDB].[catalog].[set_execution_parameter_value] @execution_id,  @object_type=50, @parameter_name=N'LOGGING_LEVEL', @parameter_value=@var0&#xA;EXEC [SSISDB].[catalog].[start_execution] @execution_id&#xA;GO&#xA;&#xA;--**********************************************************************************************************&#xA;DECLARE @FIN_CICLO INT = 0&#xA;&#xA;WHILE @FIN_CICLO = 0&#xA;BEGIN&#xA;WAITFOR DELAY '00:00:10'&#xA;SELECT @FIN_CICLO =&#xA; CASE&#xA;  WHEN COUNT(1) &gt; 0&#xA;   THEN 0&#xA;  ELSE 1&#xA; END&#xA;FROM ssisdb.catalog.executions(nolock) ex&#xA;WHERE ex.end_time IS NULL  -- still running &#xA;AND ex.status = 2 -- 1-created , 2-running ,3-canceled,4-failed ,5-pending,6-ended unexpectedly,7-succeeded ,8-stopping, 9-completed&#xA;AND EX.package_name = 'ORQ-EXT.dtsx' AND EX.project_name = 'Reportes Gerenciales'&#xA;END&#xA;&#xA;IF (SELECT COUNT(1)&#xA; FROM (&#xA;  SELECT&#xA;   end_time = MAX(end_time)&#xA;   , ex.status -- 1-created , 2-running ,3-canceled,4-failed ,5-pending,6-ended unexpectedly,7-succeeded ,8-stopping, 9-completed&#xA;   , EX.project_name&#xA;   , EX.package_name&#xA;  FROM ssisdb.catalog.executions(nolock) ex&#xA;  WHERE EX.package_name = 'ORQ-EXT.dtsx' AND EX.project_name = 'Reportes Gerenciales'&#xA;   AND CAST(EX.start_time AS DATE) = CAST(GETDATE() AS DATE)&#xA;  GROUP BY EX.project_name&#xA;   , EX.package_name&#xA;   , ex.status&#xA; )A&#xA; WHERE A.status = 7) = 1&#xA; SELECT 1&#xA;ELSE&#xA; SELECT CAST('ERROR EN LA EXT COMERCIAL' AS INT)" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Ext Reportes PBI Migracion"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{9BA220C0-F265-4178-BA03-9A5B88778954}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Ext Reportes PBI Migracion"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0" />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{795E9EC4-2583-4FD4-BFF7-79C44E656D19}"
+          SQLTask:SqlStatementSource="--Carga Tablas Reportes Migrados&#xA;Declare @execution_id bigint&#xA;EXEC [SSISDB].[catalog].[create_execution] @package_name=N'ORQ-EXT.dtsx', @execution_id=@execution_id OUTPUT, @folder_name=N'PBI_REPORTES', @project_name=N'PBI_REPORTS', @use32bitruntime=True, @reference_id=Null, @runinscaleout=False&#xA;Select @execution_id&#xA;DECLARE @var0 smallint = 1&#xA;EXEC [SSISDB].[catalog].[set_execution_parameter_value] @execution_id,  @object_type=50, @parameter_name=N'LOGGING_LEVEL', @parameter_value=@var0&#xA;EXEC [SSISDB].[catalog].[start_execution] @execution_id&#xA;GO&#xA;--**********************************************************************************************************&#xA;DECLARE @FIN_CICLO INT = 0&#xA;&#xA;WHILE @FIN_CICLO = 0&#xA;BEGIN&#xA;WAITFOR DELAY '00:00:10'&#xA;SELECT @FIN_CICLO =&#xA; CASE&#xA;  WHEN COUNT(1) &gt; 0&#xA;   THEN 0&#xA;  ELSE 1&#xA; END&#xA;FROM ssisdb.catalog.executions(nolock) ex&#xA;WHERE ex.end_time IS NULL  -- still running &#xA;AND ex.status = 2 -- 1-created , 2-running ,3-canceled,4-failed ,5-pending,6-ended unexpectedly,7-succeeded ,8-stopping, 9-completed&#xA;AND EX.package_name = 'ORQ-EXT.dtsx' AND EX.project_name = 'PBI_REPORTS'&#xA;END&#xA;&#xA;IF (SELECT COUNT(1)&#xA; FROM (&#xA;  SELECT&#xA;   end_time = MAX(end_time)&#xA;   , ex.status -- 1-created , 2-running ,3-canceled,4-failed ,5-pending,6-ended unexpectedly,7-succeeded ,8-stopping, 9-completed&#xA;   , EX.project_name&#xA;   , EX.package_name&#xA;  FROM ssisdb.catalog.executions(nolock) ex&#xA;  WHERE EX.package_name = 'ORQ-EXT.dtsx' AND EX.project_name = 'PBI_REPORTS'&#xA;   AND CAST(EX.start_time AS DATE) = CAST(GETDATE() AS DATE)&#xA;  GROUP BY EX.project_name&#xA;   , EX.package_name&#xA;   , ex.status&#xA; )A&#xA; WHERE A.status = 7) = 1&#xA; SELECT 1&#xA;ELSE&#xA; SELECT CAST('ERROR EN LAS EXT' AS INT)" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Financiero"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:Disabled="True"
+      DTS:DTSID="{A10EB52A-6411-4604-9758-D36D633EC415}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Financiero">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0" />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Financiero\EXT Financiero"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{8A054DE9-9023-43AC-8A47-2EEE4826D08C}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="EXT Financiero"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="5">
+          <DTS:Variables />
+          <DTS:LoggingOptions
+            DTS:FilterKind="0" />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{795E9EC4-2583-4FD4-BFF7-79C44E656D19}"
+              SQLTask:SqlStatementSource="--EXT FINANCIERO&#xA;Declare @execution_id bigint&#xA;EXEC [SSISDB].[catalog].[create_execution] @package_name=N'CARGA_EXCEL_y_ORA_STG.dtsx', @execution_id=@execution_id OUTPUT, @folder_name=N'Financiero', @project_name=N'KPI Financieros', @use32bitruntime=True, @reference_id=Null, @runinscaleout=False&#xA;Select @execution_id&#xA;DECLARE @var0 smallint = 1&#xA;EXEC [SSISDB].[catalog].[set_execution_parameter_value] @execution_id,  @object_type=50, @parameter_name=N'LOGGING_LEVEL', @parameter_value=@var0&#xA;EXEC [SSISDB].[catalog].[start_execution] @execution_id&#xA;GO&#xA;--**********************************************************************************************************&#xA;DECLARE @FIN_CICLO INT = 0&#xA;&#xA;WHILE @FIN_CICLO = 0&#xA;BEGIN&#xA;WAITFOR DELAY '00:00:10'&#xA;SELECT @FIN_CICLO =&#xA;&#x9;CASE&#xA;&#x9;&#x9;WHEN COUNT(1) &gt; 0&#xA;&#x9;&#x9;&#x9;THEN 0&#xA;&#x9;&#x9;ELSE 1&#xA;&#x9;END&#xA;FROM ssisdb.catalog.executions(nolock) ex&#xA;WHERE ex.end_time IS NULL  -- still running &#xA;AND ex.status = 2 -- 1-created , 2-running ,3-canceled,4-failed ,5-pending,6-ended unexpectedly,7-succeeded ,8-stopping, 9-completed&#xA;AND EX.package_name = 'CARGA_EXCEL_y_ORA_STG.dtsx' AND EX.project_name = 'KPI Financieros'&#xA;END&#xA;&#xA;IF (SELECT COUNT(1)&#xA;&#x9;FROM (&#xA;&#x9;&#x9;SELECT&#xA;&#x9;&#x9;&#x9;end_time = MAX(end_time)&#xA;&#x9;&#x9;&#x9;, ex.status -- 1-created , 2-running ,3-canceled,4-failed ,5-pending,6-ended unexpectedly,7-succeeded ,8-stopping, 9-completed&#xA;&#x9;&#x9;&#x9;, EX.project_name&#xA;&#x9;&#x9;&#x9;, EX.package_name&#xA;&#x9;&#x9;FROM ssisdb.catalog.executions(nolock) ex&#xA;&#x9;&#x9;WHERE EX.package_name = 'CARGA_EXCEL_y_ORA_STG.dtsx' AND EX.project_name = 'KPI Financieros'&#xA;&#x9;&#x9;&#x9;AND CAST(EX.start_time AS DATE) = CAST(GETDATE() AS DATE)&#xA;&#x9;&#x9;GROUP BY EX.project_name&#xA;&#x9;&#x9;&#x9;, EX.package_name&#xA;&#x9;&#x9;&#x9;, ex.status&#xA;&#x9;)A&#xA;&#x9;WHERE A.status = 7) = 1&#xA;&#x9;SELECT 1&#xA;ELSE&#xA;&#x9;SELECT CAST('ERROR EN LAS EXT' AS INT)" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Financiero\Tra Financiero"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{B1604246-F419-4A2B-BA30-0193079C30B3}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Tra Financiero"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="4">
+          <DTS:Variables />
+          <DTS:LoggingOptions
+            DTS:FilterKind="0" />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{795E9EC4-2583-4FD4-BFF7-79C44E656D19}"
+              SQLTask:SqlStatementSource="--TRANSFORMACIONES FINANCIERO&#xA;Declare @execution_id bigint&#xA;EXEC [SSISDB].[catalog].[create_execution] @package_name=N'ORQUESTADOR.dtsx', @execution_id=@execution_id OUTPUT, @folder_name=N'Financiero', @project_name=N'KPI Financieros', @use32bitruntime=False, @reference_id=Null, @runinscaleout=False&#xA;Select @execution_id&#xA;DECLARE @var0 smallint = 1&#xA;EXEC [SSISDB].[catalog].[set_execution_parameter_value] @execution_id,  @object_type=50, @parameter_name=N'LOGGING_LEVEL', @parameter_value=@var0&#xA;EXEC [SSISDB].[catalog].[start_execution] @execution_id&#xA;GO&#xA;--**********************************************************************************************************&#xA;DECLARE @FIN_CICLO INT = 0&#xA;&#xA;WHILE @FIN_CICLO = 0&#xA;BEGIN&#xA;WAITFOR DELAY '00:00:10'&#xA;SELECT @FIN_CICLO =&#xA;&#x9;CASE&#xA;&#x9;&#x9;WHEN COUNT(1) &gt; 0&#xA;&#x9;&#x9;&#x9;THEN 0&#xA;&#x9;&#x9;ELSE 1&#xA;&#x9;END&#xA;FROM ssisdb.catalog.executions(nolock) ex&#xA;WHERE ex.end_time IS NULL  -- still running &#xA;AND ex.status = 2 -- 1-created , 2-running ,3-canceled,4-failed ,5-pending,6-ended unexpectedly,7-succeeded ,8-stopping, 9-completed&#xA;AND EX.package_name = 'ORQUESTADOR.dtsx' AND EX.project_name = 'KPI Financieros'&#xA;END&#xA;&#xA;IF (SELECT COUNT(1)&#xA;&#x9;FROM (&#xA;&#x9;&#x9;SELECT&#xA;&#x9;&#x9;&#x9;end_time = MAX(end_time)&#xA;&#x9;&#x9;&#x9;, ex.status -- 1-created , 2-running ,3-canceled,4-failed ,5-pending,6-ended unexpectedly,7-succeeded ,8-stopping, 9-completed&#xA;&#x9;&#x9;&#x9;, EX.project_name&#xA;&#x9;&#x9;&#x9;, EX.package_name&#xA;&#x9;&#x9;FROM ssisdb.catalog.executions(nolock) ex&#xA;&#x9;&#x9;WHERE EX.package_name = 'ORQUESTADOR.dtsx' AND EX.project_name = 'KPI Financieros'&#xA;&#x9;&#x9;&#x9;AND CAST(EX.start_time AS DATE) = CAST(GETDATE() AS DATE)&#xA;&#x9;&#x9;GROUP BY EX.project_name&#xA;&#x9;&#x9;&#x9;, EX.package_name&#xA;&#x9;&#x9;&#x9;, ex.status&#xA;&#x9;)A&#xA;&#x9;WHERE A.status = 7) = 1&#xA;&#x9;SELECT 1&#xA;ELSE&#xA;&#x9;SELECT CAST('ERROR EN LAS TRANS' AS INT)" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Financiero\Valida Ext Exceles Financiero"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{43E68900-F57B-436D-9F2C-B14738A10ACA}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Valida Ext Exceles Financiero"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="4">
+          <DTS:Variables />
+          <DTS:LoggingOptions
+            DTS:FilterKind="0" />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{92EB1927-1424-4570-B2A2-2E286398CA9B}"
+              SQLTask:SqlStatementSource="DECLARE @JOB_NAME VARCHAR(100) = 'Ext Exceles Financiero'&#xA;&#x9;, @STEP_NAME VARCHAR(100) = 'Ext Exceles Financiero'&#xA;&#x9;, @FIN_CICLO INT = 0&#xA;&#x9;, @HORA_INI_EJE DATETIME&#xA;&#xA;WHILE @FIN_CICLO = 0&#xA;BEGIN&#xA;WAITFOR DELAY '00:00:10'&#xA;SELECT @FIN_CICLO =&#xA; CASE&#xA;  WHEN COUNT(1) &gt; 0&#xA;   THEN 0&#xA;  ELSE 1&#xA; END&#xA;FROM dbo.sysjobactivity ja &#xA;LEFT JOIN dbo.sysjobhistory jh &#xA;    ON ja.job_history_id = jh.instance_id&#xA;JOIN dbo.sysjobs j &#xA;ON ja.job_id = j.job_id&#xA;JOIN dbo.sysjobsteps js&#xA;    ON ja.job_id = js.job_id&#xA;    AND ISNULL(ja.last_executed_step_id,0)+1 = js.step_id&#xA;INNER JOIN (&#xA;&#x9;SELECT TOP 1 session_id FROM dbo.syssessions ORDER BY agent_start_date DESC&#xA;) S&#xA;&#x9;ON ja.session_id = S.session_id&#xA;WHERE start_execution_date is not null&#xA;AND stop_execution_date is null&#xA;&#x9;AND j.name = @JOB_NAME&#xA;&#x9;AND Js.step_name = @STEP_NAME&#xA;END&#xA;&#xA;SELECT&#xA;&#x9;@HORA_INI_EJE = MAX(dbo.AGENT_DATETIME(SJH.RUN_DATE, SJH.RUN_TIME))&#xA;FROM dbo.SYSJOBS SJ&#xA;INNER JOIN dbo.SYSJOBHISTORY SJH&#xA;&#x9;ON SJ.JOB_ID = SJH.JOB_ID&#xA;WHERE SJ.NAME = @JOB_NAME&#xA;&#x9;AND SJH.RUN_DATE = CAST(CONVERT(VARCHAR(10),GETDATE(),112) AS INT)&#xA;&#x9;AND SJH.STEP_ID = 0&#xA;&#xA;IF (SELECT COUNT(1)&#xA; FROM dbo.sysjobs sj&#xA;INNER JOIN dbo.sysjobhistory sjh&#xA;&#x9;ON sj.job_id = sjh.job_id&#xA;INNER JOIN dbo.sysjobsteps sjs&#xA;&#x9;ON sjh.job_id = sjs.job_id AND sjh.step_id = sjs.step_id  &#xA;WHERE sj.name = @JOB_NAME&#xA;&#x9;AND sjs.step_name = @STEP_NAME&#xA;&#x9;and dbo.agent_datetime(sjh.run_date, sjh.run_time) &gt;= @HORA_INI_EJE&#xA;&#x9;AND sjh.step_id &gt; 0&#xA;&#x9;and sjh.run_status = 1) = 1&#xA; SELECT 1&#xA;ELSE&#xA; SELECT CAST('ERROR EN ALGUNA EXT EXCEL' AS INT)" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Financiero.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{76AA2D3A-DBBD-4531-9B52-43A2BF2E576B}"
+          DTS:From="Package\Financiero\EXT Financiero"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\Financiero\Tra Financiero" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Financiero.PrecedenceConstraints[Constraint 9]"
+          DTS:CreationName=""
+          DTS:DTSID="{13EEE6E1-7869-41FD-900D-5EA929F06866}"
+          DTS:From="Package\Financiero\Valida Ext Exceles Financiero"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 9"
+          DTS:To="Package\Financiero\Tra Financiero"
+          DTS:Value="2" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Procesa Cubo Comercial"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{4F748AF6-246E-467A-BF4A-C64A6F07FDAB}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Procesa Cubo Comercial"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="2">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0" />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{795E9EC4-2583-4FD4-BFF7-79C44E656D19}"
+          SQLTask:SqlStatementSource="--PROCESA CUBO COMERCIAL&#xA;Declare @execution_id bigint&#xA;EXEC [SSISDB].[catalog].[create_execution] @package_name=N'PROCESA _CUBO.dtsx', @execution_id=@execution_id OUTPUT, @folder_name=N'COMERCIAL', @project_name=N'COMERCIAL', @use32bitruntime=False, @reference_id=Null, @runinscaleout=False&#xA;Select @execution_id&#xA;DECLARE @var0 smallint = 1&#xA;EXEC [SSISDB].[catalog].[set_execution_parameter_value] @execution_id,  @object_type=50, @parameter_name=N'LOGGING_LEVEL', @parameter_value=@var0&#xA;EXEC [SSISDB].[catalog].[start_execution] @execution_id&#xA;GO&#xA;--**********************************************************************************************************&#xA;DECLARE @FIN_CICLO INT = 0&#xA;&#xA;WHILE @FIN_CICLO = 0&#xA;BEGIN&#xA;WAITFOR DELAY '00:00:10'&#xA;SELECT @FIN_CICLO =&#xA; CASE&#xA;  WHEN COUNT(1) &gt; 0&#xA;   THEN 0&#xA;  ELSE 1&#xA; END&#xA;FROM ssisdb.catalog.executions(nolock) ex&#xA;WHERE ex.end_time IS NULL  -- still running &#xA;AND ex.status = 2 -- 1-created , 2-running ,3-canceled,4-failed ,5-pending,6-ended unexpectedly,7-succeeded ,8-stopping, 9-completed&#xA;AND EX.package_name = 'PROCESA _CUBO.dtsx' AND EX.project_name = 'COMERCIAL'&#xA;END&#xA;&#xA;IF (SELECT COUNT(1)&#xA; FROM (&#xA;  SELECT&#xA;   end_time = MAX(end_time)&#xA;   , ex.status -- 1-created , 2-running ,3-canceled,4-failed ,5-pending,6-ended unexpectedly,7-succeeded ,8-stopping, 9-completed&#xA;   , EX.project_name&#xA;   , EX.package_name&#xA;  FROM ssisdb.catalog.executions(nolock) ex&#xA;  WHERE EX.package_name = 'PROCESA _CUBO.dtsx' AND EX.project_name = 'COMERCIAL'&#xA;   AND CAST(EX.start_time AS DATE) = CAST(GETDATE() AS DATE)&#xA;  GROUP BY EX.project_name&#xA;   , EX.package_name&#xA;   , ex.status&#xA; )A&#xA; WHERE A.status = 7) = 1&#xA; SELECT 1&#xA;ELSE&#xA; SELECT CAST('ERROR EN PROCESAMIENTO DEL CUBO' AS INT)" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Procesa Cubo Inv"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{1572D5F8-6CB6-4545-9CAB-60E45014FB27}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Procesa Cubo Inv"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0" />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{795E9EC4-2583-4FD4-BFF7-79C44E656D19}"
+          SQLTask:SqlStatementSource="--PROCESA CUBO INV&#xA;Declare @execution_id bigint&#xA;EXEC [SSISDB].[catalog].[create_execution] @package_name=N'CUBO PROCESA.dtsx', @execution_id=@execution_id OUTPUT, @folder_name=N'Inventario', @project_name=N'Inventario', @use32bitruntime=False, @reference_id=Null, @runinscaleout=False&#xA;Select @execution_id&#xA;DECLARE @var0 smallint = 1&#xA;EXEC [SSISDB].[catalog].[set_execution_parameter_value] @execution_id,  @object_type=50, @parameter_name=N'LOGGING_LEVEL', @parameter_value=@var0&#xA;EXEC [SSISDB].[catalog].[start_execution] @execution_id&#xA;GO&#xA;--**********************************************************************************************************&#xA;DECLARE @FIN_CICLO INT = 0&#xA;&#xA;WHILE @FIN_CICLO = 0&#xA;BEGIN&#xA;WAITFOR DELAY '00:00:10'&#xA;SELECT @FIN_CICLO =&#xA; CASE&#xA;  WHEN COUNT(1) &gt; 0&#xA;   THEN 0&#xA;  ELSE 1&#xA; END&#xA;FROM ssisdb.catalog.executions(nolock) ex&#xA;WHERE ex.end_time IS NULL  -- still running &#xA;AND ex.status = 2 -- 1-created , 2-running ,3-canceled,4-failed ,5-pending,6-ended unexpectedly,7-succeeded ,8-stopping, 9-completed&#xA;AND EX.package_name = 'CUBO PROCESA.dtsx' AND EX.project_name = 'Inventario'&#xA;END&#xA;&#xA;IF (SELECT COUNT(1)&#xA; FROM (&#xA;  SELECT&#xA;   end_time = MAX(end_time)&#xA;   , ex.status -- 1-created , 2-running ,3-canceled,4-failed ,5-pending,6-ended unexpectedly,7-succeeded ,8-stopping, 9-completed&#xA;   , EX.project_name&#xA;   , EX.package_name&#xA;  FROM ssisdb.catalog.executions(nolock) ex&#xA;  WHERE EX.package_name = 'CUBO PROCESA.dtsx' AND EX.project_name = 'Inventario'&#xA;   AND CAST(EX.start_time AS DATE) = CAST(GETDATE() AS DATE)&#xA;  GROUP BY EX.project_name&#xA;   , EX.package_name&#xA;   , ex.status&#xA; )A&#xA; WHERE A.status = 7) = 1&#xA; SELECT 1&#xA;ELSE&#xA; SELECT CAST('ERROR EN PROCESAMIENTO DEL CUBO' AS INT)" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Procesa CuboTabular de indicadores"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{00E57D48-9015-4982-AC84-40650081750A}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Procesa CuboTabular de indicadores"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0" />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{795E9EC4-2583-4FD4-BFF7-79C44E656D19}"
+          SQLTask:SqlStatementSource="--PROCESA CUBO INDICADORES&#xA;Declare @execution_id bigint&#xA;EXEC [SSISDB].[catalog].[create_execution] @package_name=N'PROCESA_CUBO_INDICADORES.dtsx', @execution_id=@execution_id OUTPUT, @folder_name=N'KPI Comercial', @project_name=N'KPI Comercial', @use32bitruntime=False, @reference_id=Null, @runinscaleout=False&#xA;Select @execution_id&#xA;DECLARE @var0 smallint = 1&#xA;EXEC [SSISDB].[catalog].[set_execution_parameter_value] @execution_id,  @object_type=50, @parameter_name=N'LOGGING_LEVEL', @parameter_value=@var0&#xA;EXEC [SSISDB].[catalog].[start_execution] @execution_id&#xA;GO&#xA;--**********************************************************************************************************&#xA;DECLARE @FIN_CICLO INT = 0&#xA;&#xA;WHILE @FIN_CICLO = 0&#xA;BEGIN&#xA;WAITFOR DELAY '00:00:10'&#xA;SELECT @FIN_CICLO =&#xA; CASE&#xA;  WHEN COUNT(1) &gt; 0&#xA;   THEN 0&#xA;  ELSE 1&#xA; END&#xA;FROM ssisdb.catalog.executions(nolock) ex&#xA;WHERE ex.end_time IS NULL  -- still running &#xA;AND ex.status = 2 -- 1-created , 2-running ,3-canceled,4-failed ,5-pending,6-ended unexpectedly,7-succeeded ,8-stopping, 9-completed&#xA;AND EX.package_name = 'PROCESA_CUBO_INDICADORES.dtsx' AND EX.project_name = 'KPI Comercial'&#xA;END&#xA;&#xA;IF (SELECT COUNT(1)&#xA; FROM (&#xA;  SELECT&#xA;   end_time = MAX(end_time)&#xA;   , ex.status -- 1-created , 2-running ,3-canceled,4-failed ,5-pending,6-ended unexpectedly,7-succeeded ,8-stopping, 9-completed&#xA;   , EX.project_name&#xA;   , EX.package_name&#xA;  FROM ssisdb.catalog.executions(nolock) ex&#xA;  WHERE EX.package_name = 'PROCESA_CUBO_INDICADORES.dtsx' AND EX.project_name = 'KPI Comercial'&#xA;   AND CAST(EX.start_time AS DATE) = CAST(GETDATE() AS DATE)&#xA;  GROUP BY EX.project_name&#xA;   , EX.package_name&#xA;   , ex.status&#xA; )A&#xA; WHERE A.status = 7) = 1&#xA; SELECT 1&#xA;ELSE&#xA; SELECT CAST('ERROR EN PROCESAMIENTO DEL CUBO' AS INT)" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Procesa Dims Comercial"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{E2017619-CA17-4B88-8D54-2F12680BA3A7}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Procesa Dims Comercial"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="2">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0" />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{795E9EC4-2583-4FD4-BFF7-79C44E656D19}"
+          SQLTask:SqlStatementSource="--PROCESA DIMs COMERCIAL&#xA;Declare @execution_id bigint&#xA;EXEC [SSISDB].[catalog].[create_execution] @package_name=N'PROCESA_DIMS_COMERCIAL.dtsx', @execution_id=@execution_id OUTPUT, @folder_name=N'COMERCIAL', @project_name=N'COMERCIAL', @use32bitruntime=False, @reference_id=Null, @runinscaleout=False&#xA;Select @execution_id&#xA;DECLARE @var0 smallint = 1&#xA;EXEC [SSISDB].[catalog].[set_execution_parameter_value] @execution_id,  @object_type=50, @parameter_name=N'LOGGING_LEVEL', @parameter_value=@var0&#xA;EXEC [SSISDB].[catalog].[start_execution] @execution_id&#xA;GO&#xA;--**********************************************************************************************************&#xA;DECLARE @FIN_CICLO INT = 0&#xA;&#xA;WHILE @FIN_CICLO = 0&#xA;BEGIN&#xA;WAITFOR DELAY '00:00:10'&#xA;SELECT @FIN_CICLO =&#xA; CASE&#xA;  WHEN COUNT(1) &gt; 0&#xA;   THEN 0&#xA;  ELSE 1&#xA; END&#xA;FROM ssisdb.catalog.executions(nolock) ex&#xA;WHERE ex.end_time IS NULL  -- still running &#xA;AND ex.status = 2 -- 1-created , 2-running ,3-canceled,4-failed ,5-pending,6-ended unexpectedly,7-succeeded ,8-stopping, 9-completed&#xA;AND EX.package_name = 'PROCESA_DIMS_COMERCIAL.dtsx' AND EX.project_name = 'COMERCIAL'&#xA;END&#xA;&#xA;IF (SELECT COUNT(1)&#xA; FROM (&#xA;  SELECT&#xA;   end_time = MAX(end_time)&#xA;   , ex.status -- 1-created , 2-running ,3-canceled,4-failed ,5-pending,6-ended unexpectedly,7-succeeded ,8-stopping, 9-completed&#xA;   , EX.project_name&#xA;   , EX.package_name&#xA;  FROM ssisdb.catalog.executions(nolock) ex&#xA;  WHERE EX.package_name = 'PROCESA_DIMS_COMERCIAL.dtsx' AND EX.project_name = 'COMERCIAL'&#xA;   AND CAST(EX.start_time AS DATE) = CAST(GETDATE() AS DATE)&#xA;  GROUP BY EX.project_name&#xA;   , EX.package_name&#xA;   , ex.status&#xA; )A&#xA; WHERE A.status = 7) = 1&#xA; SELECT 1&#xA;ELSE&#xA; SELECT CAST('ERROR EN PROCESAMIENTO DE LAS DIMs' AS INT)" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Procesa Dims Inv"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{FB1406F5-EB12-4C18-88A6-2BC9EF8CFF77}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Procesa Dims Inv"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0" />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{795E9EC4-2583-4FD4-BFF7-79C44E656D19}"
+          SQLTask:SqlStatementSource="--PROCESA DIMs INV&#xA;Declare @execution_id bigint&#xA;EXEC [SSISDB].[catalog].[create_execution] @package_name=N'PROCESA_DIMS_INVENTARIOS.dtsx', @execution_id=@execution_id OUTPUT, @folder_name=N'Inventario', @project_name=N'Inventario', @use32bitruntime=False, @reference_id=Null, @runinscaleout=False&#xA;Select @execution_id&#xA;DECLARE @var0 smallint = 1&#xA;EXEC [SSISDB].[catalog].[set_execution_parameter_value] @execution_id,  @object_type=50, @parameter_name=N'LOGGING_LEVEL', @parameter_value=@var0&#xA;EXEC [SSISDB].[catalog].[start_execution] @execution_id&#xA;GO&#xA;--**********************************************************************************************************&#xA;DECLARE @FIN_CICLO INT = 0&#xA;&#xA;WHILE @FIN_CICLO = 0&#xA;BEGIN&#xA;WAITFOR DELAY '00:00:10'&#xA;SELECT @FIN_CICLO =&#xA; CASE&#xA;  WHEN COUNT(1) &gt; 0&#xA;   THEN 0&#xA;  ELSE 1&#xA; END&#xA;FROM ssisdb.catalog.executions(nolock) ex&#xA;WHERE ex.end_time IS NULL  -- still running &#xA;AND ex.status = 2 -- 1-created , 2-running ,3-canceled,4-failed ,5-pending,6-ended unexpectedly,7-succeeded ,8-stopping, 9-completed&#xA;AND EX.package_name = 'PROCESA_DIMS_INVENTARIOS.dtsx' AND EX.project_name = 'Inventario'&#xA;END&#xA;&#xA;IF (SELECT COUNT(1)&#xA; FROM (&#xA;  SELECT&#xA;   end_time = MAX(end_time)&#xA;   , ex.status -- 1-created , 2-running ,3-canceled,4-failed ,5-pending,6-ended unexpectedly,7-succeeded ,8-stopping, 9-completed&#xA;   , EX.project_name&#xA;   , EX.package_name&#xA;  FROM ssisdb.catalog.executions(nolock) ex&#xA;  WHERE EX.package_name = 'PROCESA_DIMS_INVENTARIOS.dtsx' AND EX.project_name = 'Inventario'&#xA;   AND CAST(EX.start_time AS DATE) = CAST(GETDATE() AS DATE)&#xA;  GROUP BY EX.project_name&#xA;   , EX.package_name&#xA;   , ex.status&#xA; )A&#xA; WHERE A.status = 7) = 1&#xA; SELECT 1&#xA;ELSE&#xA; SELECT CAST('ERROR EN PROCESAMIENTO DE LAS DIMs' AS INT)" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Tra Comercial"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{78D49BE7-8487-4834-973B-7AD3423D6CDD}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Tra Comercial"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="2">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0" />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{795E9EC4-2583-4FD4-BFF7-79C44E656D19}"
+          SQLTask:SqlStatementSource="--TRANSFORMACIONES COMERCIAL&#xA;Declare @execution_id bigint&#xA;EXEC [SSISDB].[catalog].[create_execution] @package_name=N'ORQ-TRANS.dtsx', @execution_id=@execution_id OUTPUT, @folder_name=N'COMERCIAL', @project_name=N'COMERCIAL', @use32bitruntime=False, @reference_id=Null, @runinscaleout=False&#xA;Select @execution_id&#xA;DECLARE @var0 smallint = 1&#xA;EXEC [SSISDB].[catalog].[set_execution_parameter_value] @execution_id,  @object_type=50, @parameter_name=N'LOGGING_LEVEL', @parameter_value=@var0&#xA;EXEC [SSISDB].[catalog].[start_execution] @execution_id&#xA;GO&#xA;--**********************************************************************************************************&#xA;DECLARE @FIN_CICLO INT = 0&#xA;&#xA;WHILE @FIN_CICLO = 0&#xA;BEGIN&#xA;WAITFOR DELAY '00:00:10'&#xA;SELECT @FIN_CICLO =&#xA;&#x9;CASE&#xA;&#x9;&#x9;WHEN COUNT(1) &gt; 0&#xA;&#x9;&#x9;&#x9;THEN 0&#xA;&#x9;&#x9;ELSE 1&#xA;&#x9;END&#xA;FROM ssisdb.catalog.executions(nolock) ex&#xA;WHERE ex.end_time IS NULL  -- still running &#xA;AND ex.status = 2 -- 1-created , 2-running ,3-canceled,4-failed ,5-pending,6-ended unexpectedly,7-succeeded ,8-stopping, 9-completed&#xA;AND EX.package_name = 'ORQ-TRANS.dtsx' AND EX.project_name = 'COMERCIAL'&#xA;END&#xA;&#xA;IF (SELECT COUNT(1)&#xA;&#x9;FROM (&#xA;&#x9;&#x9;SELECT&#xA;&#x9;&#x9;&#x9;end_time = MAX(end_time)&#xA;&#x9;&#x9;&#x9;, ex.status -- 1-created , 2-running ,3-canceled,4-failed ,5-pending,6-ended unexpectedly,7-succeeded ,8-stopping, 9-completed&#xA;&#x9;&#x9;&#x9;, EX.project_name&#xA;&#x9;&#x9;&#x9;, EX.package_name&#xA;&#x9;&#x9;FROM ssisdb.catalog.executions(nolock) ex&#xA;&#x9;&#x9;WHERE EX.package_name = 'ORQ-TRANS.dtsx' AND EX.project_name = 'COMERCIAL'&#xA;&#x9;&#x9;&#x9;AND CAST(EX.start_time AS DATE) = CAST(GETDATE() AS DATE)&#xA;&#x9;&#x9;GROUP BY EX.project_name&#xA;&#x9;&#x9;&#x9;, EX.package_name&#xA;&#x9;&#x9;&#x9;, ex.status&#xA;&#x9;)A&#xA;&#x9;WHERE A.status = 7) = 1&#xA;&#x9;SELECT 1&#xA;ELSE&#xA;&#x9;SELECT CAST('ERROR EN LA TRANS' AS INT)" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Tra Inv"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{15CF74C4-0845-4D7B-BBB8-84FCABA6E4AB}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Tra Inv"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0" />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{795E9EC4-2583-4FD4-BFF7-79C44E656D19}"
+          SQLTask:SqlStatementSource="--TRANSFORMACIONES INVENTARIOS&#xA;Declare @execution_id bigint&#xA;EXEC [SSISDB].[catalog].[create_execution] @package_name=N'ORQ-TRANS.dtsx', @execution_id=@execution_id OUTPUT, @folder_name=N'Inventario', @project_name=N'Inventario', @use32bitruntime=False, @reference_id=Null, @runinscaleout=False&#xA;Select @execution_id&#xA;DECLARE @var0 smallint = 1&#xA;EXEC [SSISDB].[catalog].[set_execution_parameter_value] @execution_id,  @object_type=50, @parameter_name=N'LOGGING_LEVEL', @parameter_value=@var0&#xA;EXEC [SSISDB].[catalog].[start_execution] @execution_id&#xA;GO&#xA;--**********************************************************************************************************&#xA;DECLARE @FIN_CICLO INT = 0&#xA;&#xA;WHILE @FIN_CICLO = 0&#xA;BEGIN&#xA;WAITFOR DELAY '00:00:10'&#xA;SELECT @FIN_CICLO =&#xA;&#x9;CASE&#xA;&#x9;&#x9;WHEN COUNT(1) &gt; 0&#xA;&#x9;&#x9;&#x9;THEN 0&#xA;&#x9;&#x9;ELSE 1&#xA;&#x9;END&#xA;FROM ssisdb.catalog.executions(nolock) ex&#xA;WHERE ex.end_time IS NULL  -- still running &#xA;AND ex.status = 2 -- 1-created , 2-running ,3-canceled,4-failed ,5-pending,6-ended unexpectedly,7-succeeded ,8-stopping, 9-completed&#xA;AND EX.package_name = 'ORQ-TRANS.dtsx' AND EX.project_name = 'Inventario'&#xA;END&#xA;&#xA;IF (SELECT COUNT(1)&#xA;&#x9;FROM (&#xA;&#x9;&#x9;SELECT&#xA;&#x9;&#x9;&#x9;end_time = MAX(end_time)&#xA;&#x9;&#x9;&#x9;, ex.status -- 1-created , 2-running ,3-canceled,4-failed ,5-pending,6-ended unexpectedly,7-succeeded ,8-stopping, 9-completed&#xA;&#x9;&#x9;&#x9;, EX.project_name&#xA;&#x9;&#x9;&#x9;, EX.package_name&#xA;&#x9;&#x9;FROM ssisdb.catalog.executions(nolock) ex&#xA;&#x9;&#x9;WHERE EX.package_name = 'ORQ-TRANS.dtsx' AND EX.project_name = 'Inventario'&#xA;&#x9;&#x9;&#x9;AND CAST(EX.start_time AS DATE) = CAST(GETDATE() AS DATE)&#xA;&#x9;&#x9;GROUP BY EX.project_name&#xA;&#x9;&#x9;&#x9;, EX.package_name&#xA;&#x9;&#x9;&#x9;, ex.status&#xA;&#x9;)A&#xA;&#x9;WHERE A.status = 7) = 1&#xA;&#x9;SELECT 1&#xA;ELSE&#xA;&#x9;SELECT CAST('ERROR EN LAS TRANS' AS INT)" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Tra KPI Comercial"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{A4743584-7F4B-4675-A2FC-7AF8F15F4DA8}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Tra KPI Comercial"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0" />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{795E9EC4-2583-4FD4-BFF7-79C44E656D19}"
+          SQLTask:SqlStatementSource="--TRANSFORMACIONES KPI Comercial&#xA;Declare @execution_id bigint&#xA;EXEC [SSISDB].[catalog].[create_execution] @package_name=N'ORQ-TRANS.dtsx', @execution_id=@execution_id OUTPUT, @folder_name=N'KPI Comercial', @project_name=N'KPI Comercial', @use32bitruntime=False, @reference_id=Null, @runinscaleout=False&#xA;Select @execution_id&#xA;DECLARE @var0 smallint = 1&#xA;EXEC [SSISDB].[catalog].[set_execution_parameter_value] @execution_id,  @object_type=50, @parameter_name=N'LOGGING_LEVEL', @parameter_value=@var0&#xA;EXEC [SSISDB].[catalog].[start_execution] @execution_id&#xA;GO&#xA;--**********************************************************************************************************&#xA;DECLARE @FIN_CICLO INT = 0&#xA;&#xA;WHILE @FIN_CICLO = 0&#xA;BEGIN&#xA;WAITFOR DELAY '00:00:10'&#xA;SELECT @FIN_CICLO =&#xA;&#x9;CASE&#xA;&#x9;&#x9;WHEN COUNT(1) &gt; 0&#xA;&#x9;&#x9;&#x9;THEN 0&#xA;&#x9;&#x9;ELSE 1&#xA;&#x9;END&#xA;FROM ssisdb.catalog.executions(nolock) ex&#xA;WHERE ex.end_time IS NULL  -- still running &#xA;AND ex.status = 2 -- 1-created , 2-running ,3-canceled,4-failed ,5-pending,6-ended unexpectedly,7-succeeded ,8-stopping, 9-completed&#xA;AND EX.package_name = 'ORQ-TRANS.dtsx' AND EX.project_name = 'KPI Comercial'&#xA;END&#xA;&#xA;IF (SELECT COUNT(1)&#xA;&#x9;FROM (&#xA;&#x9;&#x9;SELECT&#xA;&#x9;&#x9;&#x9;end_time = MAX(end_time)&#xA;&#x9;&#x9;&#x9;, ex.status -- 1-created , 2-running ,3-canceled,4-failed ,5-pending,6-ended unexpectedly,7-succeeded ,8-stopping, 9-completed&#xA;&#x9;&#x9;&#x9;, EX.project_name&#xA;&#x9;&#x9;&#x9;, EX.package_name&#xA;&#x9;&#x9;FROM ssisdb.catalog.executions(nolock) ex&#xA;&#x9;&#x9;WHERE EX.package_name = 'ORQ-TRANS.dtsx' AND EX.project_name = 'KPI Comercial'&#xA;&#x9;&#x9;&#x9;AND CAST(EX.start_time AS DATE) = CAST(GETDATE() AS DATE)&#xA;&#x9;&#x9;GROUP BY EX.project_name&#xA;&#x9;&#x9;&#x9;, EX.package_name&#xA;&#x9;&#x9;&#x9;, ex.status&#xA;&#x9;)A&#xA;&#x9;WHERE A.status = 7) = 1&#xA;&#x9;SELECT 1&#xA;ELSE&#xA;&#x9;SELECT CAST('ERROR EN LAS TRANS' AS INT)" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Tra Reportes Gerenciales"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:Disabled="True"
+      DTS:DTSID="{A964A83F-22E6-4A5E-A5B4-529F14A4AA7C}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Tra Reportes Gerenciales"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0" />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{795E9EC4-2583-4FD4-BFF7-79C44E656D19}"
+          SQLTask:SqlStatementSource="--EXT COMERCIAL&#xA;Declare @execution_id bigint&#xA;EXEC [SSISDB].[catalog].[create_execution] @package_name=N'ORQ-TRA.dtsx', @execution_id=@execution_id OUTPUT,&#xA;@folder_name=N'Reportes Gerenciales', @project_name=N'Reportes Gerenciales', @use32bitruntime=True, @reference_id=Null, @runinscaleout=False&#xA;Select @execution_id&#xA;DECLARE @var0 smallint = 1&#xA;EXEC [SSISDB].[catalog].[set_execution_parameter_value] @execution_id,  @object_type=50, @parameter_name=N'LOGGING_LEVEL', @parameter_value=@var0&#xA;EXEC [SSISDB].[catalog].[start_execution] @execution_id&#xA;GO&#xA;&#xA;--**********************************************************************************************************&#xA;DECLARE @FIN_CICLO INT = 0&#xA;&#xA;WHILE @FIN_CICLO = 0&#xA;BEGIN&#xA;WAITFOR DELAY '00:00:10'&#xA;SELECT @FIN_CICLO =&#xA; CASE&#xA;  WHEN COUNT(1) &gt; 0&#xA;   THEN 0&#xA;  ELSE 1&#xA; END&#xA;FROM ssisdb.catalog.executions(nolock) ex&#xA;WHERE ex.end_time IS NULL  -- still running &#xA;AND ex.status = 2 -- 1-created , 2-running ,3-canceled,4-failed ,5-pending,6-ended unexpectedly,7-succeeded ,8-stopping, 9-completed&#xA;AND EX.package_name = 'ORQ-TRA.dtsx' AND EX.project_name = 'Reportes Gerenciales'&#xA;END&#xA;&#xA;IF (SELECT COUNT(1)&#xA; FROM (&#xA;  SELECT&#xA;   end_time = MAX(end_time)&#xA;   , ex.status -- 1-created , 2-running ,3-canceled,4-failed ,5-pending,6-ended unexpectedly,7-succeeded ,8-stopping, 9-completed&#xA;   , EX.project_name&#xA;   , EX.package_name&#xA;  FROM ssisdb.catalog.executions(nolock) ex&#xA;  WHERE EX.package_name = 'ORQ-TRA.dtsx' AND EX.project_name = 'Reportes Gerenciales'&#xA;   AND CAST(EX.start_time AS DATE) = CAST(GETDATE() AS DATE)&#xA;  GROUP BY EX.project_name&#xA;   , EX.package_name&#xA;   , ex.status&#xA; )A&#xA; WHERE A.status = 7) = 1&#xA; SELECT 1&#xA;ELSE&#xA; SELECT CAST('ERROR EN LA EXT COMERCIAL' AS INT)" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Valida Ext Exceles Inv"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:Disabled="True"
+      DTS:DTSID="{43CC9E34-3AAB-4CB1-802E-FEE7032A649A}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Valida Ext Exceles Inv"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0" />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{92EB1927-1424-4570-B2A2-2E286398CA9B}"
+          SQLTask:SqlStatementSource="DECLARE @JOB_NAME VARCHAR(100) = 'Ext Exceles Inventarios'&#xA;&#x9;, @STEP_NAME VARCHAR(100) = 'Ext Exceles Inventarios'&#xA;&#x9;, @FIN_CICLO INT = 0&#xA;&#x9;, @HORA_INI_EJE DATETIME&#xA;&#xA;WHILE @FIN_CICLO = 0&#xA;BEGIN&#xA;WAITFOR DELAY '00:00:10'&#xA;SELECT @FIN_CICLO =&#xA; CASE&#xA;  WHEN COUNT(1) &gt; 0&#xA;   THEN 0&#xA;  ELSE 1&#xA; END&#xA;FROM dbo.sysjobactivity ja &#xA;LEFT JOIN dbo.sysjobhistory jh &#xA;    ON ja.job_history_id = jh.instance_id&#xA;JOIN dbo.sysjobs j &#xA;ON ja.job_id = j.job_id&#xA;JOIN dbo.sysjobsteps js&#xA;    ON ja.job_id = js.job_id&#xA;    AND ISNULL(ja.last_executed_step_id,0)+1 = js.step_id&#xA;INNER JOIN (&#xA;&#x9;SELECT TOP 1 session_id FROM dbo.syssessions ORDER BY agent_start_date DESC&#xA;) S&#xA;&#x9;ON ja.session_id = S.session_id&#xA;WHERE start_execution_date is not null&#xA;AND stop_execution_date is null&#xA;&#x9;AND j.name = @JOB_NAME&#xA;&#x9;AND Js.step_name = @STEP_NAME&#xA;END&#xA;&#xA;SELECT&#xA;&#x9;@HORA_INI_EJE = MAX(dbo.AGENT_DATETIME(SJH.RUN_DATE, SJH.RUN_TIME))&#xA;FROM dbo.SYSJOBS SJ&#xA;INNER JOIN dbo.SYSJOBHISTORY SJH&#xA;&#x9;ON SJ.JOB_ID = SJH.JOB_ID&#xA;WHERE SJ.NAME = @JOB_NAME&#xA;&#x9;AND SJH.RUN_DATE = CAST(CONVERT(VARCHAR(10),GETDATE(),112) AS INT)&#xA;&#x9;AND SJH.STEP_ID = 0&#xA;&#xA;IF (SELECT COUNT(1)&#xA; FROM dbo.sysjobs sj&#xA;INNER JOIN dbo.sysjobhistory sjh&#xA;&#x9;ON sj.job_id = sjh.job_id&#xA;INNER JOIN dbo.sysjobsteps sjs&#xA;&#x9;ON sjh.job_id = sjs.job_id AND sjh.step_id = sjs.step_id  &#xA;WHERE sj.name = @JOB_NAME&#xA;&#x9;AND sjs.step_name = @STEP_NAME&#xA;&#x9;and dbo.agent_datetime(sjh.run_date, sjh.run_time) &gt;= @HORA_INI_EJE&#xA;&#x9;AND sjh.step_id &gt; 0&#xA;&#x9;and sjh.run_status = 1) = 1&#xA; SELECT 1&#xA;ELSE&#xA; SELECT CAST('ERROR EN ALGUNA EXT EXCEL' AS INT)" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\ValidaExt Exceles Comercial"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:Disabled="True"
+      DTS:DTSID="{EE1BD5DD-1F03-4543-BC6E-C6BD3D7CE110}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="ValidaExt Exceles Comercial"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="3">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0" />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{92EB1927-1424-4570-B2A2-2E286398CA9B}"
+          SQLTask:SqlStatementSource="DECLARE @JOB_NAME VARCHAR(100) = 'Ext Exceles Comercial'&#xA;&#x9;, @STEP_NAME VARCHAR(100) = 'Ext Exceles Comercial'&#xA;&#x9;, @FIN_CICLO INT = 0&#xA;&#x9;, @HORA_INI_EJE DATETIME&#xA;&#xA;WHILE @FIN_CICLO = 0&#xA;BEGIN&#xA;WAITFOR DELAY '00:00:10'&#xA;SELECT @FIN_CICLO =&#xA; CASE&#xA;  WHEN COUNT(1) &gt; 0&#xA;   THEN 0&#xA;  ELSE 1&#xA; END&#xA;FROM dbo.sysjobactivity ja &#xA;LEFT JOIN dbo.sysjobhistory jh &#xA;    ON ja.job_history_id = jh.instance_id&#xA;JOIN dbo.sysjobs j &#xA;ON ja.job_id = j.job_id&#xA;JOIN dbo.sysjobsteps js&#xA;    ON ja.job_id = js.job_id&#xA;    AND ISNULL(ja.last_executed_step_id,0)+1 = js.step_id&#xA;INNER JOIN (&#xA;&#x9;SELECT TOP 1 session_id FROM dbo.syssessions ORDER BY agent_start_date DESC&#xA;) S&#xA;&#x9;ON ja.session_id = S.session_id&#xA;WHERE start_execution_date is not null&#xA;AND stop_execution_date is null&#xA;&#x9;AND j.name = @JOB_NAME&#xA;&#x9;AND Js.step_name = @STEP_NAME&#xA;END&#xA;&#xA;SELECT&#xA;&#x9;@HORA_INI_EJE = MAX(dbo.AGENT_DATETIME(SJH.RUN_DATE, SJH.RUN_TIME))&#xA;FROM dbo.SYSJOBS SJ&#xA;INNER JOIN dbo.SYSJOBHISTORY SJH&#xA;&#x9;ON SJ.JOB_ID = SJH.JOB_ID&#xA;WHERE SJ.NAME = @JOB_NAME&#xA;&#x9;AND SJH.RUN_DATE = CAST(CONVERT(VARCHAR(10),GETDATE(),112) AS INT)&#xA;&#x9;AND SJH.STEP_ID = 0&#xA;&#xA;IF (SELECT COUNT(1)&#xA; FROM dbo.sysjobs sj&#xA;INNER JOIN dbo.sysjobhistory sjh&#xA;&#x9;ON sj.job_id = sjh.job_id&#xA;INNER JOIN dbo.sysjobsteps sjs&#xA;&#x9;ON sjh.job_id = sjs.job_id AND sjh.step_id = sjs.step_id  &#xA;WHERE sj.name = @JOB_NAME&#xA;&#x9;AND sjs.step_name = @STEP_NAME&#xA;&#x9;and dbo.agent_datetime(sjh.run_date, sjh.run_time) &gt;= @HORA_INI_EJE&#xA;&#x9;AND sjh.step_id &gt; 0&#xA;&#x9;and sjh.run_status = 1) = 1&#xA; SELECT 1&#xA;ELSE&#xA; SELECT CAST('ERROR EN ALGUNA EXT EXCEL' AS INT)" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{50D3ADD3-46A9-4AE3-9325-540361803CCB}"
+      DTS:From="Package\Tra Comercial"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Tra KPI Comercial" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{1FFFBBAE-0F41-49BE-86E9-E21CE702DE31}"
+      DTS:From="Package\Tra Inv"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Tra KPI Comercial" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 10]"
+      DTS:CreationName=""
+      DTS:DTSID="{A6CE0489-4D2E-4607-B6D8-EE9A0230F830}"
+      DTS:From="Package\Tra KPI Comercial"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 10"
+      DTS:To="Package\Procesa Dims Inv" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 11]"
+      DTS:CreationName=""
+      DTS:DTSID="{7EF75C56-D346-4EF1-B139-488C185E41E0}"
+      DTS:From="Package\ValidaExt Exceles Comercial"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 11"
+      DTS:To="Package\Tra Comercial"
+      DTS:Value="2" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 12]"
+      DTS:CreationName=""
+      DTS:DTSID="{DF665F41-D01D-4DD9-AE8C-7A9314361D49}"
+      DTS:From="Package\Ext Reportes Gerenciales"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 12"
+      DTS:To="Package\Tra Reportes Gerenciales" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 13]"
+      DTS:CreationName=""
+      DTS:DTSID="{081F9478-3B9F-492A-A3DF-D00E991CBC23}"
+      DTS:From="Package\Cargar VNR por SKU"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 13"
+      DTS:To="Package\Procesa CuboTabular de indicadores" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 14]"
+      DTS:CreationName=""
+      DTS:DTSID="{798B288B-F0FF-46DA-9CAB-5B557D2CA937}"
+      DTS:From="Package\Ext Inventarios"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 14"
+      DTS:To="Package\Tra Inv" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 15]"
+      DTS:CreationName=""
+      DTS:DTSID="{8254C896-BFE5-4DB6-A4B4-BE4E430535DB}"
+      DTS:From="Package\Procesa Dims Inv"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 15"
+      DTS:To="Package\Procesa Cubo Inv" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 16]"
+      DTS:CreationName=""
+      DTS:DTSID="{344486BC-BBD8-4189-A9A2-56245F9949F3}"
+      DTS:From="Package\Ext Comercial"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 16"
+      DTS:To="Package\Tra Inv" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 17]"
+      DTS:CreationName=""
+      DTS:DTSID="{EDB96626-4576-476E-8066-9DAF6EE97315}"
+      DTS:From="Package\Ext Inventarios"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 17"
+      DTS:To="Package\Ext Comercial" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 18]"
+      DTS:CreationName=""
+      DTS:DTSID="{EA0F067F-1A60-40EA-B188-223C48876F57}"
+      DTS:From="Package\Procesa Cubo Inv"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 18"
+      DTS:To="Package\Ext Reportes Gerenciales" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 19]"
+      DTS:CreationName=""
+      DTS:DTSID="{10B4CBED-A583-4033-9FDF-EDC19A08410B}"
+      DTS:From="Package\Tra Reportes Gerenciales"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 19"
+      DTS:To="Package\Ext Reportes PBI Migracion" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{BE98791F-77E0-4313-A627-36E9FBEC1E96}"
+      DTS:From="Package\Procesa Cubo Comercial"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\Procesa Dims Inv" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 20]"
+      DTS:CreationName=""
+      DTS:DTSID="{F5EBE98D-D0BA-40B0-B2EC-22940A80D058}"
+      DTS:From="Package\Ext Reportes PBI Migracion"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 20"
+      DTS:To="Package\CargaTablas Reportes PBI Migracion" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{0A4721F5-AC19-4E05-A8AE-73D8D2D9F6BB}"
+      DTS:From="Package\Valida Ext Exceles Inv"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\Tra Inv"
+      DTS:Value="2" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 4]"
+      DTS:CreationName=""
+      DTS:DTSID="{E0898F68-614C-44B9-BAE3-A42D60810E7C}"
+      DTS:From="Package\Ext KPI Comercial"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 4"
+      DTS:To="Package\Tra KPI Comercial" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 5]"
+      DTS:CreationName=""
+      DTS:DTSID="{3ED3C7F9-64F2-4D09-96E9-17F472314A4D}"
+      DTS:From="Package\Tra KPI Comercial"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 5"
+      DTS:To="Package\Carga VALOR_NETO_REALIZADO" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 6]"
+      DTS:CreationName=""
+      DTS:DTSID="{0899BD5C-5AF9-4B3F-9AA4-ECD476C6EF44}"
+      DTS:From="Package\Carga VALOR_NETO_REALIZADO"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 6"
+      DTS:To="Package\Cargar VNR por SKU" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 7]"
+      DTS:CreationName=""
+      DTS:DTSID="{A8D26A6A-F144-4508-941A-E35105DCF5CF}"
+      DTS:From="Package\Tra Comercial"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 7"
+      DTS:To="Package\Procesa Dims Comercial" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 8]"
+      DTS:CreationName=""
+      DTS:DTSID="{52AFD36D-87F0-47D4-AB6F-62574470EABA}"
+      DTS:From="Package\Procesa Dims Comercial"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 8"
+      DTS:To="Package\Procesa Cubo Comercial" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 9]"
+      DTS:CreationName=""
+      DTS:DTSID="{04835EED-1497-47B8-BEAA-4C1470C3C028}"
+      DTS:From="Package\Ext Comercial"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 9"
+      DTS:To="Package\Tra Comercial" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="64" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="236,41"
+          Id="Package\Carga VALOR_NETO_REALIZADO"
+          TopLeft="790.458322110896,130.394439527955" />
+        <NodeLayout
+          Size="176,41"
+          Id="Package\Cargar VNR por SKU"
+          TopLeft="816.458322110896,196.016660866837" />
+        <NodeLayout
+          Size="249,41"
+          Id="Package\CargaTablas Reportes PBI Migracion"
+          TopLeft="536.464285620013,677.747051235957" />
+        <NodeLayout
+          Size="143,41"
+          Id="Package\Ext Comercial"
+          TopLeft="211,141" />
+        <NodeLayout
+          Size="151,41"
+          Id="Package\Ext Inventarios"
+          TopLeft="203,67" />
+        <NodeLayout
+          Size="161,41"
+          Id="Package\Ext KPI Comercial"
+          TopLeft="589.374988758936,56.149996850193" />
+        <NodeLayout
+          Size="195,41"
+          Id="Package\Ext Reportes Gerenciales"
+          TopLeft="565.142864587356,458.964695189977" />
+        <NodeLayout
+          Size="207,41"
+          Id="Package\Ext Reportes PBI Migracion"
+          TopLeft="553,604" />
+        <NodeLayout
+          Size="151,41"
+          Id="Package\Financiero\EXT Financiero"
+          TopLeft="17.1666784385809,5.5" />
+        <NodeLayout
+          Size="145,41"
+          Id="Package\Financiero\Tra Financiero"
+          TopLeft="16.5,81.683331369063" />
+        <NodeLayout
+          Size="215,41"
+          Id="Package\Financiero\Valida Ext Exceles Financiero"
+          TopLeft="194.916678531714,78.6666639933985" />
+        <EdgeLayout
+          Id="Package\Financiero.PrecedenceConstraints[Constraint 1]"
+          TopLeft="90.8333392192905,48.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,33.183331369063"
+              Start="0,0"
+              End="0,25.683331369063">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,25.683331369063" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Financiero.PrecedenceConstraints[Constraint 9]"
+          TopLeft="194.916678531714,101.424997681231">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-31.4166785317138,0"
+              Start="0,0"
+              End="-23.9166785317138,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-23.9166785317138,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-37.2627923908569,5,50.60890625,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="415,151"
+          Size="415,193"
+          Id="Package\Financiero"
+          TopLeft="1043.74998496845,22.399996327162" />
+        <NodeLayout
+          Size="144,41"
+          Id="Package\Procesa Cubo Comercial"
+          TopLeft="404.966363682602,316.77332824715" />
+        <NodeLayout
+          Size="161,41"
+          Id="Package\Procesa Cubo Inv"
+          TopLeft="583.966363682602,394.5999911201" />
+        <NodeLayout
+          Size="249,41"
+          Id="Package\Procesa CuboTabular de indicadores"
+          TopLeft="781.124985350295,273.249992270768" />
+        <NodeLayout
+          Size="192,41"
+          Id="Package\Procesa Dims Comercial"
+          TopLeft="376.966363682602,246.164440622833" />
+        <NodeLayout
+          Size="161,41"
+          Id="Package\Procesa Dims Inv"
+          TopLeft="587.966363682602,318.382215871466" />
+        <NodeLayout
+          Size="145,41"
+          Id="Package\Tra Comercial"
+          TopLeft="400.966363682602,166.555552998516" />
+        <NodeLayout
+          Size="113,44"
+          Id="Package\Tra Inv"
+          TopLeft="400.966363682602,92.137500212118" />
+        <NodeLayout
+          Size="164,41"
+          Id="Package\Tra KPI Comercial"
+          TopLeft="587.458322110896,131.772218189074" />
+        <NodeLayout
+          Size="196,41"
+          Id="Package\Tra Reportes Gerenciales"
+          TopLeft="564.571437998694,533.529419261279" />
+        <NodeLayout
+          Size="183,41"
+          Id="Package\Valida Ext Exceles Inv"
+          TopLeft="368,4.7833253948888" />
+        <NodeLayout
+          Size="209,41"
+          Id="Package\ValidaExt Exceles Comercial"
+          TopLeft="117,222.200000023246" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="545.966363682602,188.055552998516">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="41.4919584282941,-28.9500014761086"
+              Start="0,0"
+              End="33.9919584282941,-28.9500014761086">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="20.002074606502,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="20.002074606502,0"
+                    Point2="24.002074606502,0"
+                    Point3="24.002074606502,-4" />
+                  <mssgle:LineSegment
+                    End="24.002074606502,-24.9500014761086" />
+                  <mssgle:CubicBezierSegment
+                    Point1="24.002074606502,-24.9500014761086"
+                    Point2="24.002074606502,-28.9500014761086"
+                    Point3="28.002074606502,-28.9500014761086" />
+                  <mssgle:LineSegment
+                    End="33.9919584282941,-28.9500014761086" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="513.966363682602,114.137500212118">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="73.4919584282941,33.3013846436227"
+              Start="0,0"
+              End="65.9919584282941,33.3013846436227">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="38.5132853688338,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="38.5132853688338,0"
+                    Point2="42.5132853688338,0"
+                    Point3="42.5132853688338,4" />
+                  <mssgle:LineSegment
+                    End="42.5132853688338,29.3013846436227" />
+                  <mssgle:CubicBezierSegment
+                    Point1="42.5132853688338,29.3013846436227"
+                    Point2="42.5132853688338,33.3013846436227"
+                    Point3="46.5132853688338,33.3013846436227" />
+                  <mssgle:LineSegment
+                    End="65.9919584282941,33.3013846436227" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 10]"
+          TopLeft="668.962342896749,174.772218189074">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,143.609997682392"
+              Start="0,0"
+              End="0,136.109997682392">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,136.109997682392" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 11]"
+          TopLeft="326,243.200000023246">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="74.966363682602,-49.3111136913967"
+              Start="0,0"
+              End="67.466363682602,-49.3111136913967">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="39.3661924441958,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="39.3661924441958,0"
+                    Point2="43.3661924441958,0"
+                    Point3="43.3661924441958,-4" />
+                  <mssgle:LineSegment
+                    End="43.3661924441958,-45.3111136913967" />
+                  <mssgle:CubicBezierSegment
+                    Point1="43.3661924441958,-45.3111136913967"
+                    Point2="43.3661924441958,-49.3111136913967"
+                    Point3="47.3661924441958,-49.3111136913967" />
+                  <mssgle:LineSegment
+                    End="67.466363682602,-49.3111136913967" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="18.0617393191958,1,50.60890625,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 12]"
+          TopLeft="662.657151293025,500.564695189977">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,32.9647240713026"
+              Start="0,0"
+              End="0,25.4647240713026">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,25.4647240713026" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 13]"
+          TopLeft="905.541653730596,239.016660866837">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,34.233331403931"
+              Start="0,0"
+              End="0,26.733331403931">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.733331403931" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 14]"
+          TopLeft="354,88.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="46.966363682602,19.637500212118"
+              Start="0,0"
+              End="39.466363682602,19.637500212118">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="23.1910526583485,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="23.1910526583485,0"
+                    Point2="27.1910526583485,0"
+                    Point3="27.1910526583485,4" />
+                  <mssgle:LineSegment
+                    End="27.1910526583485,15.637500212118" />
+                  <mssgle:CubicBezierSegment
+                    Point1="27.1910526583485,15.637500212118"
+                    Point2="27.1910526583485,19.637500212118"
+                    Point3="31.1910526583485,19.637500212118" />
+                  <mssgle:LineSegment
+                    End="39.466363682602,19.637500212118" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 15]"
+          TopLeft="666.966363682602,361.382215871466">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,33.217775248634"
+              Start="0,0"
+              End="0,25.717775248634">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,25.717775248634" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 16]"
+          TopLeft="354,156.333333333333">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="46.966363682602,-36.1958331212153"
+              Start="0,0"
+              End="39.466363682602,-36.1958331212153">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="19.5296831914818,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="19.5296831914818,0"
+                    Point2="23.5296831914818,0"
+                    Point3="23.5296831914818,-4" />
+                  <mssgle:LineSegment
+                    End="23.5296831914818,-32.1958331212153" />
+                  <mssgle:CubicBezierSegment
+                    Point1="23.5296831914818,-32.1958331212153"
+                    Point2="23.5296831914818,-36.1958331212153"
+                    Point3="27.5296831914818,-36.1958331212153" />
+                  <mssgle:LineSegment
+                    End="39.466363682602,-36.1958331212153" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 17]"
+          TopLeft="280.5,110">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,31"
+              Start="0,0"
+              End="0,23.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 18]"
+          TopLeft="663.554614134979,435.5999911201">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,23.364704069877"
+              Start="0,0"
+              End="0,15.864704069877">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,15.864704069877" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 19]"
+          TopLeft="659.535718999347,574.529419261279">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,29.470580738721"
+              Start="0,0"
+              End="0,21.970580738721">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.970580738721" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="548.966363682602,339.077772059308">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="39.0000000000001,0"
+              Start="0,0"
+              End="31.5000000000001,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="31.5000000000001,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 20]"
+          TopLeft="658.732142810007,646">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,31.747051235957"
+              Start="0,0"
+              End="0,24.247051235957">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24.247051235957" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="458.233181841301,46.7833253948888">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,45.3541748172292"
+              Start="0,0"
+              End="0,37.8541748172292">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,37.8541748172292" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-25.304453125,13.1223999086146,50.60890625,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 4]"
+          TopLeft="670.166655434916,99.149996850193">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,32.622221338881"
+              Start="0,0"
+              End="0,25.122221338881">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,25.122221338881" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 5]"
+          TopLeft="751.458322110896,152.583328858515">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="39,0"
+              Start="0,0"
+              End="31.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="31.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 6]"
+          TopLeft="906.458322110896,173.394439527955">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,22.622221338882"
+              Start="0,0"
+              End="0,15.122221338882">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,15.122221338882" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 7]"
+          TopLeft="473.216363682602,209.555552998516">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,36.608887624317"
+              Start="0,0"
+              End="0,29.108887624317">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,29.108887624317" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 8]"
+          TopLeft="474.966363682602,289.164440622833">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,27.608887624317"
+              Start="0,0"
+              End="0,20.108887624317">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.108887624317" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 9]"
+          TopLeft="354,167.666666666667">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="46.966363682602,14.555552998516"
+              Start="0,0"
+              End="39.466363682602,14.555552998516">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="19.5069502439744,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="19.5069502439744,0"
+                    Point2="23.5069502439744,0"
+                    Point3="23.5069502439744,4" />
+                  <mssgle:LineSegment
+                    End="23.5069502439744,10.555552998516" />
+                  <mssgle:CubicBezierSegment
+                    Point1="23.5069502439744,10.555552998516"
+                    Point2="23.5069502439744,14.555552998516"
+                    Point3="27.5069502439744,14.555552998516" />
+                  <mssgle:LineSegment
+                    End="39.466363682602,14.555552998516" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <ConnectionManager
+    design-time-name="Package.ConnectionManagers[SSAS]">
+    <ProjectReferenceName></ProjectReferenceName>
+  </ConnectionManager>
+  <ConnectionManager
+    design-time-name="Package.ConnectionManagers[SSAS_TAB]">
+    <ProjectReferenceName></ProjectReferenceName>
+  </ConnectionManager>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

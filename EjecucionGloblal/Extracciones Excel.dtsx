@@ -1,0 +1,86 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="8/26/2022 11:32:40 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="SRV-SQLBICR"
+  DTS:CreatorName="UNICOMER\mauricio_montoya"
+  DTS:DTSID="{FFDE1932-3F87-46D0-BD39-650C8437B046}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.170"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="4"
+  DTS:VersionGUID="{578221AC-31D5-463F-803E-38F3A46249A5}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DWH]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{B604DC2D-D04A-454A-AC84-21644A5409E0}"
+      DTS:ObjectName="DWH">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=.;Initial Catalog=DWH;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[SSAS_TAB]"
+      DTS:CreationName="MSOLAP100"
+      DTS:DTSID="{131701AB-A29B-4AD8-8428-6B1CF89EEF08}"
+      DTS:ObjectName="SSAS_TAB">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
+          DTS:ConnectionString="Data Source=.\TABULAR;Initial Catalog=Indicadores Inventario;Provider=MSOLAP.8;Integrated Security=SSPI;Impersonation Level=Impersonate;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Ext Exceles Comercial"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{ffb34a8e-c0d5-4dd1-816f-1e4375e8ca7b}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Ext Exceles Comercial"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0" />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{B604DC2D-D04A-454A-AC84-21644A5409E0}"
+          SQLTask:SqlStatementSource="--EXCEL COMERCIAL&#xA;Declare @execution_id bigint&#xA;EXEC [SSISDB].[catalog].[create_execution] @package_name=N'ORQ-EXT-Excel.dtsx', @execution_id=@execution_id OUTPUT, @folder_name=N'COMERCIAL', @project_name=N'COMERCIAL', @use32bitruntime=True, @reference_id=Null, @runinscaleout=False&#xA;Select @execution_id&#xA;DECLARE @var0 smallint = 1&#xA;EXEC [SSISDB].[catalog].[set_execution_parameter_value] @execution_id,  @object_type=50, @parameter_name=N'LOGGING_LEVEL', @parameter_value=@var0&#xA;EXEC [SSISDB].[catalog].[start_execution] @execution_id&#xA;GO&#xA;--**********************************************************************************************************&#xA;DECLARE @FIN_CICLO INT = 0&#xA;&#xA;WHILE @FIN_CICLO = 0&#xA;BEGIN&#xA;WAITFOR DELAY '00:00:10'&#xA;SELECT @FIN_CICLO =&#xA; CASE&#xA;  WHEN COUNT(1) &gt; 0&#xA;   THEN 0&#xA;  ELSE 1&#xA; END&#xA;FROM ssisdb.catalog.executions(nolock) ex&#xA;WHERE ex.end_time IS NULL  -- still running &#xA; AND ex.status = 2 -- 1-created , 2-running ,3-canceled,4-failed ,5-pending,6-ended unexpectedly,7-succeeded ,8-stopping, 9-completed&#xA; AND EX.package_name = 'ORQ-EXT-Excel.dtsx' AND EX.project_name = 'COMERCIAL'&#xA;END&#xA;&#xA;IF (SELECT COUNT(1)&#xA; FROM (&#xA;  SELECT&#xA;   end_time = MAX(end_time)&#xA;   , ex.status -- 1-created , 2-running ,3-canceled,4-failed ,5-pending,6-ended unexpectedly,7-succeeded ,8-stopping, 9-completed&#xA;   , EX.project_name&#xA;   , EX.package_name&#xA;  FROM ssisdb.catalog.executions(nolock) ex&#xA;  WHERE EX.package_name = 'ORQ-EXT-Excel.dtsx' AND EX.project_name = 'COMERCIAL'&#xA; AND CAST(EX.start_time AS DATE) = CAST(GETDATE() AS DATE)&#xA;  GROUP BY EX.project_name&#xA;   , EX.package_name&#xA;   , ex.status&#xA; )A&#xA; WHERE A.status = 7) = 1&#xA; SELECT 1&#xA;ELSE&#xA; SELECT CAST('ERROR EN ALGUNA EXT EXCEL' AS INT)" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="181,42"
+          Id="Package\Ext Exceles Comercial"
+          TopLeft="321,93" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
