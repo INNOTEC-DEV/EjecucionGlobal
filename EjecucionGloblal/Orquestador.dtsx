@@ -8,12 +8,12 @@
   DTS:DelayValidation="True"
   DTS:DTSID="{33F59E59-2FA1-4927-8BDB-4B5AF8BB2C71}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="15.0.2000.170"
+  DTS:LastModifiedProductVersion="16.0.5270.0"
   DTS:LocaleID="1033"
   DTS:ObjectName="Orquestador"
   DTS:PackageType="5"
-  DTS:VersionBuild="139"
-  DTS:VersionGUID="{0F1D12C2-8980-4934-9201-D7ECD614DB70}">
+  DTS:VersionBuild="142"
+  DTS:VersionGUID="{A3A6CEDE-2988-4877-930E-E40706429937}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -118,7 +118,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Carga VALOR_NETO_REALIZADO"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
+      DTS:ThreadHint="1">
       <DTS:Variables />
       <DTS:LoggingOptions
         DTS:FilterKind="0" />
@@ -137,7 +137,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Cargar VNR por SKU"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
+      DTS:ThreadHint="1">
       <DTS:Variables />
       <DTS:LoggingOptions
         DTS:FilterKind="0" />
@@ -156,7 +156,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Ext Comercial"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="2">
+      DTS:ThreadHint="1">
       <DTS:Variables />
       <DTS:LoggingOptions
         DTS:FilterKind="0" />
@@ -175,7 +175,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Ext Inventarios"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="2">
+      DTS:ThreadHint="1">
       <DTS:Variables />
       <DTS:LoggingOptions
         DTS:FilterKind="0" />
@@ -194,7 +194,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Ext KPI Comercial"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="3">
+      DTS:ThreadHint="5">
       <DTS:Variables />
       <DTS:LoggingOptions
         DTS:FilterKind="0" />
@@ -213,7 +213,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Ext Reportes Gerenciales"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="1">
+      DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:LoggingOptions
         DTS:FilterKind="0" />
@@ -244,7 +244,7 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="EXT Financiero"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="4">
+          DTS:ThreadHint="3">
           <DTS:Variables />
           <DTS:LoggingOptions
             DTS:FilterKind="0" />
@@ -263,7 +263,7 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="Tra Financiero"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="4">
+          DTS:ThreadHint="2">
           <DTS:Variables />
           <DTS:LoggingOptions
             DTS:FilterKind="0" />
@@ -282,7 +282,7 @@
           DTS:LocaleID="-1"
           DTS:ObjectName="Valida Ext Exceles Financiero"
           DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-          DTS:ThreadHint="5">
+          DTS:ThreadHint="2">
           <DTS:Variables />
           <DTS:LoggingOptions
             DTS:FilterKind="0" />
@@ -322,7 +322,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Procesa Cubo Comercial"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="1">
+      DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:LoggingOptions
         DTS:FilterKind="0" />
@@ -341,7 +341,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Procesa Cubo Inv"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="1">
+      DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:LoggingOptions
         DTS:FilterKind="0" />
@@ -360,7 +360,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Procesa CuboTabular de indicadores"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
+      DTS:ThreadHint="1">
       <DTS:Variables />
       <DTS:LoggingOptions
         DTS:FilterKind="0" />
@@ -379,7 +379,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Procesa Dims Comercial"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="1">
+      DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:LoggingOptions
         DTS:FilterKind="0" />
@@ -398,7 +398,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Procesa Dims Inv"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="1">
+      DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:LoggingOptions
         DTS:FilterKind="0" />
@@ -406,25 +406,6 @@
         <SQLTask:SqlTaskData
           SQLTask:Connection="{B604DC2D-D04A-454A-AC84-21644A5409E0}"
           SQLTask:SqlStatementSource="--PROCESA DIMs INV&#xA;Declare @execution_id bigint&#xA;EXEC [SSISDB].[catalog].[create_execution] @package_name=N'PROCESA_DIMS_INVENTARIOS.dtsx', @execution_id=@execution_id OUTPUT, @folder_name=N'Inventario', @project_name=N'Inventario', @use32bitruntime=False, @reference_id=Null, @runinscaleout=False&#xA;Select @execution_id&#xA;DECLARE @var0 smallint = 1&#xA;EXEC [SSISDB].[catalog].[set_execution_parameter_value] @execution_id,  @object_type=50, @parameter_name=N'LOGGING_LEVEL', @parameter_value=@var0&#xA;EXEC [SSISDB].[catalog].[start_execution] @execution_id&#xA;GO&#xA;--**********************************************************************************************************&#xA;DECLARE @FIN_CICLO INT = 0&#xA;&#xA;WHILE @FIN_CICLO = 0&#xA;BEGIN&#xA;WAITFOR DELAY '00:00:10'&#xA;SELECT @FIN_CICLO =&#xA; CASE&#xA;  WHEN COUNT(1) &gt; 0&#xA;   THEN 0&#xA;  ELSE 1&#xA; END&#xA;FROM ssisdb.catalog.executions(nolock) ex&#xA;WHERE ex.end_time IS NULL  -- still running &#xA;AND ex.status = 2 -- 1-created , 2-running ,3-canceled,4-failed ,5-pending,6-ended unexpectedly,7-succeeded ,8-stopping, 9-completed&#xA;AND EX.package_name = 'PROCESA_DIMS_INVENTARIOS.dtsx' AND EX.project_name = 'Inventario'&#xA;END&#xA;&#xA;IF (SELECT COUNT(1)&#xA; FROM (&#xA;  SELECT&#xA;   end_time = MAX(end_time)&#xA;   , ex.status -- 1-created , 2-running ,3-canceled,4-failed ,5-pending,6-ended unexpectedly,7-succeeded ,8-stopping, 9-completed&#xA;   , EX.project_name&#xA;   , EX.package_name&#xA;  FROM ssisdb.catalog.executions(nolock) ex&#xA;  WHERE EX.package_name = 'PROCESA_DIMS_INVENTARIOS.dtsx' AND EX.project_name = 'Inventario'&#xA;   AND CAST(EX.start_time AS DATE) = CAST(GETDATE() AS DATE)&#xA;  GROUP BY EX.project_name&#xA;   , EX.package_name&#xA;   , ex.status&#xA; )A&#xA; WHERE A.status = 7) = 1&#xA; SELECT 1&#xA;ELSE&#xA; SELECT CAST('ERROR EN PROCESAMIENTO DE LAS DIMs' AS INT)" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
-      </DTS:ObjectData>
-    </DTS:Executable>
-    <DTS:Executable
-      DTS:refId="Package\Reportes PBI Migracion"
-      DTS:CreationName="Microsoft.ExecuteSQLTask"
-      DTS:Description="Execute SQL Task"
-      DTS:DTSID="{a2ec494e-e617-4389-9129-7de76a43aaea}"
-      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
-      DTS:LocaleID="-1"
-      DTS:ObjectName="Reportes PBI Migracion"
-      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="1">
-      <DTS:Variables />
-      <DTS:LoggingOptions
-        DTS:FilterKind="0" />
-      <DTS:ObjectData>
-        <SQLTask:SqlTaskData
-          SQLTask:Connection="{BD5AABD9-B2F7-4859-904E-F0EBA7719FBF}"
-          SQLTask:SqlStatementSource="IF (&#xA;SELECT CASE WHEN COUNT(1) &gt; 0 THEN 1 ELSE 0 END&#xA;FROM dbo.sysjobactivity ja &#xA;LEFT JOIN dbo.sysjobhistory jh ON ja.job_history_id = jh.instance_id&#xA;JOIN dbo.sysjobs j ON ja.job_id = j.job_id&#xA;WHERE ja.session_id = (SELECT TOP 1 session_id FROM dbo.syssessions ORDER BY session_id DESC)&#xA;  AND start_execution_date is not null&#xA;  AND stop_execution_date is null&#xA;  AND j.name = 'PBI Reports') = 1&#xA;&#x9;SELECT 'El job se esta ejecutando'&#xA;ELSE &#xA;&#x9;EXEC sp_start_job 'PBI Reports'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -436,7 +417,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Tra Comercial"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="1">
+      DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:LoggingOptions
         DTS:FilterKind="0" />
@@ -455,7 +436,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Tra Inv"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
+      DTS:ThreadHint="1">
       <DTS:Variables />
       <DTS:LoggingOptions
         DTS:FilterKind="0" />
@@ -474,7 +455,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Tra KPI Comercial"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
+      DTS:ThreadHint="1">
       <DTS:Variables />
       <DTS:LoggingOptions
         DTS:FilterKind="0" />
@@ -493,7 +474,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Tra Reportes Gerenciales"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="1">
+      DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:LoggingOptions
         DTS:FilterKind="0" />
@@ -512,7 +493,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Valida Ext Exceles Inv"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
+      DTS:ThreadHint="4">
       <DTS:Variables />
       <DTS:LoggingOptions
         DTS:FilterKind="0" />
@@ -531,7 +512,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="ValidaExt Exceles Comercial"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="1">
+      DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:LoggingOptions
         DTS:FilterKind="0" />
@@ -608,14 +589,6 @@
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 18"
       DTS:To="Package\Ext Reportes Gerenciales" />
-    <DTS:PrecedenceConstraint
-      DTS:refId="Package.PrecedenceConstraints[Constraint 19]"
-      DTS:CreationName=""
-      DTS:DTSID="{4061183D-6E7F-49A8-9945-C9B581B8D16F}"
-      DTS:From="Package\Tra Reportes Gerenciales"
-      DTS:LogicalAnd="True"
-      DTS:ObjectName="Constraint 19"
-      DTS:To="Package\Reportes PBI Migracion" />
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
       DTS:CreationName=""
@@ -811,10 +784,6 @@
           Size="161,41"
           Id="Package\Procesa Dims Inv"
           TopLeft="587.966363682602,318.382215871466" />
-        <NodeLayout
-          Size="189,43"
-          Id="Package\Reportes PBI Migracion"
-          TopLeft="563,606" />
         <NodeLayout
           Size="144,42"
           Id="Package\Tra Comercial"
@@ -1033,28 +1002,6 @@
                   Capacity="5">
                   <mssgle:LineSegment
                     End="0,15.864704069877" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 19]"
-          TopLeft="660.11905233268,574.862752594612">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,31.1372474053876"
-              Start="0,0"
-              End="0,23.6372474053876">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,23.6372474053876" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1287,6 +1234,13 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <AnnotationLayout
+          Text="20240318  Se elimina el llamado al job de PBI Reports.&#xA;Ahora se llama en el job de Gestiones para evitar &#xA;bloqueos de tablas entre PBI y Crédito y Cobro."
+          ParentId="Package"
+          FontInfo="{assembly:Null}"
+          Size="315,72"
+          Id="bddaaa13-cc21-4d6f-bb72-1d21b0db0441"
+          TopLeft="515.555555555556,586.666666666667" />
       </GraphLayout>
     </LayoutInfo>
   </Package>
